@@ -14,7 +14,7 @@ Then visit `http://localhost:8000`. Camera access requires HTTPS or localhost. T
 
 ## What works in this demo
 
-- Root `index.html` is the first page. Demo sign-in/registration goes to the protected `home.html` dashboard with a welcome popup; sign-out returns to login.
+- Root `index.html` is the first page. Email-only demo sign-in goes to the `home.html` dashboard with a welcome popup; sign-out returns to login.
 - Browser-only account name/email editing and sign-out, plus a PacShield guide popup with fixed demo replies.
 - Manual income and expense entries saved per account in this browser; live monthly totals, category breakdown, and searchable recent activity.
 - Three clickable scan demonstrations for safe, caution, and danger verdicts.
@@ -26,16 +26,16 @@ Then visit `http://localhost:8000`. Camera access requires HTTPS or localhost. T
 ## Honest product limits
 
 The budget ledger is usable now for manual tracking and persists in this browser for each demo email. It does not sync across devices or connect to a bank; browser data can be lost if site storage is cleared. The site still does not include production authentication, a backend, Telegram guardian delivery, verified payee lookup, or real financial connections. A verdict is a safety signal, not a guarantee. PacShield cannot inspect or block a QR scanned in another UPI app. Never enter a UPI PIN into PacShield.
-The sign-in and registration forms are UI previews only, not real authentication. A demo display name and email are saved in local browser storage so the dashboard can personalize; passwords are never saved or sent. The assistant popup uses fixed replies and is not connected to an AI service.
+The email sign-in is a UI preview only, not real authentication. A demo display name and email are saved in local browser storage so the dashboard can personalize; no password is requested, saved, or sent. The assistant popup uses fixed replies and is not connected to an AI service.
 
 ## Project files
 
-- `index.html` — first-page sign-in and registration UI
+- `index.html` — first-page email sign-in for the browser demo
 - `home.html` — signed-in dashboard and dialogs
 - `styles.css` — responsive visual design and subtle motion
 - `app.js` — QR parsing, risk scoring, voice, and dashboard interactions
 - `ledger.js` — browser-local income/expense ledger, monthly budgets, totals, and budget alerts
-- `login.css`, `login.js` — sign-in and registration demo styles and behavior
+- `login.css`, `login.js` — email sign-in demo styles and behavior
 - `account-assistant.css`, `account-assistant.js` — account editor and assistant popup interactions
 ## Product documents
 

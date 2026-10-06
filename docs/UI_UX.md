@@ -54,10 +54,10 @@ The supplied design brief defines the primary palette below. Status colors must 
 
 ### Entry, sign-in, and setup
 
-- Root is the sign-in/create-account screen. Keep account form labels visible, show password controls explicitly, and state whether a submission succeeded.
+- Root is the email-only sign-in screen for the current browser demo. Keep the email label visible and state that this does not authenticate a real account.
 - Real product onboarding verifies email/mobile, then asks for language, income, budgets, alert limit, and optional guardian. Explain consent before linking anyone.
 - After login route by role: User to Home; Admin to admin console. Keep sign-out discoverable in account settings and the main signed-in account menu.
-- In the current static demo, the root form is not server-authenticated. Copy must continue to say the account is a browser demo and passwords are not stored/sent.
+- In the current static demo, the root form is not server-authenticated. Copy must continue to say this is a browser demo, and no password is requested or sent.
 
 ### Home/dashboard
 

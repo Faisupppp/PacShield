@@ -24,12 +24,16 @@
 
     <section class="auth-main">
       <div class="auth-card">
-        <div class="auth-card-heading"><span class="auth-mini-mark">⬡</span><span class="auth-kicker">PACSHIELD BROWSER DEMO</span><h2 id="form-title">Explore PacShield.</h2><p id="form-subtitle">Open the interactive demo. Your entries stay in this browser.</p></div>
-        <div class="auth-tabs" aria-hidden="true"><span class="auth-tab active">Local demo</span><span class="auth-tab">No account needed</span></div>
-        <div class="auth-feedback" id="auth-feedback" role="status" aria-live="polite"></div>
-        <button class="auth-submit" id="demo-submit" type="button"><span>Continue to demo</span><span>→</span></button>
+        <div class="auth-card-heading"><span class="auth-mini-mark">⬡</span><span class="auth-kicker">PACSHIELD BROWSER DEMO</span><h2 id="form-title">Continue with email.</h2><p id="form-subtitle">Use your email to personalize this browser demo.</p></div>
+        <div class="auth-tabs" aria-hidden="true"><span class="auth-tab active">Email</span><span class="auth-tab">Local demo</span></div>
+        <form id="email-login-form" novalidate>
+          <label class="field-label" for="login-email">Email address</label>
+          <div class="field-wrap"><span class="field-icon" aria-hidden="true">✉</span><input id="login-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required aria-describedby="auth-feedback"></div>
+          <div class="auth-feedback" id="auth-feedback" role="status" aria-live="polite"></div>
+          <button class="auth-submit" id="demo-submit" type="submit"><span>Continue with email</span><span>→</span></button>
+        </form>
         <div class="auth-divider"><span></span><small>YOUR PRIVACY MATTERS</small><span></span></div>
-        <div class="privacy-note"><span>🔒</span><p>This preview does not create or verify accounts. It does not ask for passwords, payment details, or a UPI PIN. Demo data stays on this device.</p></div>
+        <div class="privacy-note"><span>🔒</span><p>This is a browser demo, not account authentication. Your email is saved only in this browser. No password, payment details, or UPI PIN is requested or sent.</p></div>
         <p class="demo-note">For demonstration only. PacShield is not connected to a bank or payment provider.</p>
       </div>
       <footer class="auth-footer"><span>© 2026 PacShield</span><a href="index.html">Scan safe. Pay safe.</a></footer>

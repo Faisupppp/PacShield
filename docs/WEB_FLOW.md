@@ -48,7 +48,7 @@ flowchart LR
 | `/me`, `/me/guardian`, `/me/ai`, `/me/export`, `/me/privacy` | Profile, guardian, AI key, exports, privacy | User |
 | `/admin/reports`, `/admin/blacklist`, `/admin/stats`, `/admin/audit` | Report review, verified blacklist, anonymous statistics, audit | Admin only |
 
-**Current static demo:** the production root `/` serves the login/register screen; a successful front-end demo login opens `/home.html`. A demo account stored in browser local storage is required for the dashboard route, and sign-out returns to `/`. These routes are not a production authorization boundary. Budget tracking uses manually entered records stored per email in the current browser; it does not sync across devices.
+**Current static demo:** the production root `/` serves an email-only demo entry screen; submitting a valid email opens `/home.html`. A demo account stored in browser local storage is required for the dashboard route, and sign-out returns to `/`. These routes are not a production authorization boundary. Budget tracking uses manually entered records stored per email in the current browser; it does not sync across devices.
 
 ## 3. First visit, registration, and login
 
@@ -70,7 +70,7 @@ flowchart LR
 
 ### Current demo behavior
 
-The static sign-in UI validates email shape and a minimum password length only. It does not authenticate an identity. The demo stores only display name/email in browser local storage, never stores/submits the password, returns the user to the dashboard, and shows a welcome notice. Direct dashboard access without demo account details returns to login.
+The static sign-in UI validates email format only. It does not authenticate an identity or request a password. The demo stores only a display name derived from the email and the email itself in browser local storage, returns the user to the dashboard, and shows a welcome notice. Direct dashboard access without demo account details returns to login.
 
 ## 4. Scan and pay safely
 
