@@ -4,7 +4,7 @@
 
 ## Run it
 
-Open `index.html` in a browser, or serve this folder locally:
+Open `index.html` for sign in. After a valid demo sign-in, PacShield opens `home.html`. To use the protected dashboard locally, serve this folder:
 
 ```bash
 python -m http.server 8000
@@ -14,7 +14,7 @@ Then visit `http://localhost:8000`. Camera access requires HTTPS or localhost. T
 
 ## What works in this demo
 
-- Sign-in and account-creation demo at `login.html`, returning to the dashboard with a welcome popup.
+- Root `index.html` is the first page. Demo sign-in/registration goes to the protected `home.html` dashboard with a welcome popup; sign-out returns to login.
 - Browser-only account name/email editing and sign-out, plus a PacShield guide popup with fixed demo replies.
 - Responsive finance dashboard with spending, budgets, safety totals, and searchable recent activity.
 - Three clickable scan demonstrations for safe, caution, and danger verdicts.
@@ -30,8 +30,9 @@ The sign-in and registration forms are UI previews only, not real authentication
 
 ## Project files
 
-- `index.html` — app structure and dialogs
+- `index.html` — first-page sign-in and registration UI
+- `home.html` — signed-in dashboard and dialogs
 - `styles.css` — responsive visual design and subtle motion
 - `app.js` — dashboard rendering, QR parsing, risk scoring, voice, and interactions
-- `login.html`, `login.css`, `login.js` — sign-in and registration demo
+- `login.css`, `login.js` — sign-in and registration demo styles and behavior
 - `account-assistant.css`, `account-assistant.js` — account editor and assistant popup interactions

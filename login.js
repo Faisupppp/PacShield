@@ -2,6 +2,10 @@ const form=document.getElementById('auth-form');
 const feedback=document.getElementById('auth-feedback');
 let mode='login';
 
+try{const account=JSON.parse(localStorage.getItem('pacshield-account')||'null');if(account?.name&&account?.email)window.location.replace('home.html')}catch{localStorage.removeItem('pacshield-account')}
+const pageNotice=sessionStorage.getItem('pacshield-notice');
+if(pageNotice){feedback.textContent=pageNotice;sessionStorage.removeItem('pacshield-notice')}
+
 function setMode(next){
   mode=next;
   const registering=mode==='register';
@@ -42,5 +46,5 @@ form.addEventListener('submit',event=>{
   localStorage.setItem('pacshield-account',JSON.stringify(account));
   sessionStorage.setItem('pacshield-welcome',`${mode==='register'?'Welcome to PacShield':'Welcome back'}, ${account.name}. This is a demo account.`);
   password.value='';
-  window.location.assign('index.html');
+  window.location.assign('home.html');
 });

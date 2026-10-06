@@ -10,6 +10,7 @@ function applyAccount(account){
   byId('sidebar-avatar').textContent=initials(account?.name);
   byId('top-avatar').textContent=initials(account?.name);
   byId('account-link').innerHTML=account?'Your account <span>→</span>':'Sign in <span>→</span>';
+  byId('header-signout').classList.toggle('hidden',!account);
 }
 function showAccount(){
   const account=readAccount();
@@ -24,9 +25,10 @@ applyAccount(readAccount());
 const welcome=sessionStorage.getItem('pacshield-welcome');
 if(welcome){sessionStorage.removeItem('pacshield-welcome');setTimeout(()=>showToast(welcome),250)}
 document.addEventListener('click',event=>{
-  const control=event.target.closest('[data-action="account"],[data-action="assistant"],[data-action="assistant-close"],[data-assistant-prompt]');
+  const control=event.target.closest('[data-action="account"],[data-action="signout"],[data-action="assistant"],[data-action="assistant-close"],[data-assistant-prompt]');
   if(!control)return;
   if(control.dataset.action==='account')showAccount();
+  if(control.dataset.action==='signout')signOutDemo();
   if(control.dataset.action==='assistant'){
     const panel=byId('assistant-panel');const open=!panel.classList.contains('open');
     panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));byId('assistant-launch').setAttribute('aria-expanded',String(open));
@@ -42,7 +44,17 @@ byId('account-form').addEventListener('submit',event=>{
   if(!account.name||!byId('account-email').checkValidity()){showToast('Please enter a name and a valid email address.');return;}
   localStorage.setItem('pacshield-account',JSON.stringify(account));applyAccount(account);closeModal('account-modal');showToast('Account details updated.');
 });
-byId('account-signout').addEventListener('click',()=>{localStorage.removeItem('pacshield-account');applyAccount(null);closeModal('account-modal');showToast('You’ve signed out of this demo account.');});
+byId('account-signout').addEventListener('click',signOutDemo);
+function signOutDemo(){
+  localStorage.removeItem('pacshield-account');
+  sessionStorage.setItem('pacshield-notice','You have signed out. Sign in again anytime.');
+  window.location.replace('index.html');
+}
+document.addEventListener('click',event=>{
+  const action=event.target.closest('[data-action]')?.dataset.action;
+  if(action==='income-info')showToast('Available balance is a demo estimate: monthly income minus sample spending.');
+  if(action==='budget-options')showToast('Eating out budget: ₹8,200 of ₹10,000 used this month.');
+});
 function assistantReply(message){
   const text=message.toLowerCase();
   if(/qr|scan|payment|payee|scam/.test(text))return 'Open “Scan a QR safely” and check a UPI code before handing off to a payment app. If anything feels rushed, stop and call someone you trust. Never share your UPI PIN.';
