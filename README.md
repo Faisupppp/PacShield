@@ -36,3 +36,9 @@ The sign-in and registration forms are UI previews only, not real authentication
 - `app.js` — dashboard rendering, QR parsing, risk scoring, voice, and interactions
 - `login.css`, `login.js` — sign-in and registration demo styles and behavior
 - `account-assistant.css`, `account-assistant.js` — account editor and assistant popup interactions
+## Product documents
+
+- [PRD](docs/PRD.md) — product goals, roles, requirements, risk model, and current release status
+- [TRD](docs/TRD.md) — target architecture, parser/risk contracts, API, and security design
+- [Web app flow](docs/WEB_FLOW.md) — routes and user/guardian/admin workflows
+- [UI/UX design](docs/UI_UX.md) — visual system, screen behavior, accessibility, and copy guidance
