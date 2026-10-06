@@ -14,6 +14,7 @@ Then visit `http://localhost:8000`. Camera access requires HTTPS or localhost. T
 
 ## What works in this demo
 
+- Sign-in and account-creation page at `login.html`, linked from the dashboard.
 - Responsive finance dashboard with spending, budgets, safety totals, and searchable recent activity.
 - Three clickable scan demonstrations for safe, caution, and danger verdicts.
 - Deterministic UPI QR parsing and local risk scoring for camera scans and QR images.
@@ -24,9 +25,11 @@ Then visit `http://localhost:8000`. Camera access requires HTTPS or localhost. T
 ## Honest product limits
 
 This is a front-end demo with sample data. It does not include production authentication, a backend, Telegram guardian delivery, verified payee lookup, or real financial connections. A verdict is a safety signal, not a guarantee. PacShield cannot inspect or block a QR scanned in another UPI app. Never enter a UPI PIN into PacShield.
+The sign-in and registration forms are UI previews only: they do not create accounts or send or save passwords.
 
 ## Project files
 
 - `index.html` — app structure and dialogs
 - `styles.css` — responsive visual design and subtle motion
 - `app.js` — dashboard rendering, QR parsing, risk scoring, voice, and interactions
+- `login.html`, `login.css`, `login.js` — sign-in and registration interface
