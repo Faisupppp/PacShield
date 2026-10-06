@@ -1,9 +1,9 @@
-const initialTransactions=[{name:'Fresh Mart Groceries',category:'Food & dining',date:'Today, 10:42 AM',amount:1840,icon:'⌂',tone:''},{name:'Electricity Board',category:'Bills & utilities',date:'Yesterday',amount:2360,icon:'ϟ',tone:'gold'},{name:'Metro Smart Card',category:'Travel',date:'Oct 4, 2026',amount:600,icon:'↗',tone:'lilac'},{name:'Coffee & Co.',category:'Food & dining',date:'Oct 3, 2026',amount:320,icon:'☕',tone:'gold'}];
-let transactions=JSON.parse(localStorage.getItem('pacshield-transactions')||'null')||initialTransactions;
+const initialTransactions=[];
+let transactions=[];
 const el=id=>document.getElementById(id); const money=n=>'₹'+Number(n).toLocaleString('en-IN');
 function renderTransactions(filter=''){const list=el('transaction-list');const rows=transactions.filter(t=>(t.name+' '+t.category).toLowerCase().includes(filter.toLowerCase()));list.innerHTML=rows.length?rows.slice(0,5).map(t=>`<div class="transaction-row"><div class="transaction-name"><span class="tx-icon ${t.tone||''}">${t.icon||'↗'}</span>${escapeHtml(t.name)}</div><span class="category-tag">${escapeHtml(t.category)}</span><span class="tx-date">${escapeHtml(t.date)}</span><span class="tx-amount expense">${money(t.amount)}</span></div>`).join(''):'<div class="empty-state">No matching activity yet.</div>';}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function updateTotals(){const spent=25150+transactions.filter(t=>!initialTransactions.some(x=>x.name===t.name)).reduce((a,t)=>a+t.amount,0);el('spent-total').textContent=money(spent);el('balance').textContent=(68000-spent).toLocaleString('en-IN');el('safe-today').textContent=Math.max(0,Math.floor(1940-(spent-25150)/30)).toLocaleString('en-IN');}
+function updateTotals(){const spent=transactions.reduce((a,t)=>a+(Number(t.amount)||0),0);el('spent-total').textContent=money(spent);el('balance').textContent='0';el('safe-today').textContent='0';}
 renderTransactions();updateTotals();
 function showToast(message){const t=el('toast');t.textContent=message;t.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove('show'),2600)}
 function openModal(id){document.querySelectorAll('.modal-backdrop.open').forEach(x=>closeModal(x));const m=el(id);m.style.display='flex';requestAnimationFrame(()=>m.classList.add('open'));m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const close=m.querySelector('.modal-close');setTimeout(()=>close.focus(),50)}

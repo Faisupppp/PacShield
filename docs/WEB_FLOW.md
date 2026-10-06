@@ -48,7 +48,7 @@ flowchart LR
 | `/me`, `/me/guardian`, `/me/ai`, `/me/export`, `/me/privacy` | Profile, guardian, AI key, exports, privacy | User |
 | `/admin/reports`, `/admin/blacklist`, `/admin/stats`, `/admin/audit` | Report review, verified blacklist, anonymous statistics, audit | Admin only |
 
-**Current static demo:** the production root `/` serves the login/register screen; a successful front-end demo login opens `/home.html`. A demo account stored in browser local storage is required for the dashboard route, and sign-out returns to `/`. These routes are not a production authorization boundary.
+**Current static demo:** the production root `/` serves the login/register screen; a successful front-end demo login opens `/home.html`. A demo account stored in browser local storage is required for the dashboard route, and sign-out returns to `/`. These routes are not a production authorization boundary. Budget tracking uses manually entered records stored per email in the current browser; it does not sync across devices.
 
 ## 3. First visit, registration, and login
 
@@ -131,10 +131,10 @@ flowchart TD
 ## 6. Money and budget flows
 
 - Home shows income, spending, category breakdown, budget health, safe-to-spend today, forecast, scans blocked, and money saved.
-- Transactions can be searched/filtered by date, category, amount, and account. Manual add/edit/delete requires validation and uses paise integers.
+- Current static app: user adds an income or expense with description, category, date, and amount. Entries are stored as integer paise in per-email browser local storage, then monthly totals, available balance, safe-to-spend, and category totals update immediately. Search filters visible current-month entries. The production target adds edit/delete and server-side persistence.
 - Shield completion creates a suggested categorized transaction only after the user confirms payment completed.
 - Category keyword rules run before optional AI categorization; user corrections are retained.
-- Overall/category budget progress warns at 80% and 100%. A large amount is checked at transaction creation too.
+- Current static app: set an optional overall limit and category limits. A modal alert appears on the first crossing of 80% and 100% for each monthly limit; dismissing it does not repeat that threshold alert. The production target also checks large amounts at transaction creation.
 - Export queues a personal CSV/PDF statement. Show job status and a signed download link that expires after ten minutes; remove the generated artifact after use.
 
 ## 7. Assistant, admin, and privacy flows

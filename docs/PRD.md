@@ -164,7 +164,7 @@ For a scan, the high-amount check is true if any applicable personal limit, medi
 
 ## 9. Current release status
 
-The current public Vercel build is a **static front-end demo**. It includes login/registration screens that store only a display name/email in local browser storage, a dashboard with sample data, deterministic demo scan scenarios and browser-side UPI parsing, browser speech, an account editor, and fixed assistant demo replies. These screens are not production authentication, a backend, real AI, Telegram delivery, bank connectivity, exports, or admin services. The local-storage dashboard guard is a usability/demo gate, not an authorization boundary. Never use real credentials or rely on this build to protect money.
+The current public Vercel build is a **static browser app**. It includes login/registration UI that stores a display name/email in local storage, manually entered income/expenses and budgets saved per email in that browser, live dashboard calculations, and one-time 80%/100% budget threshold popups. Ledger entries do not sync across browsers/devices and are not imported from a bank. QR scan scenarios and assistant replies remain demos. There is no production authentication, backend, real AI, Telegram delivery, verified payee lookup, exports, or admin service. The local-storage dashboard gate is not an authorization boundary; do not use real credentials or rely on this build to protect money.
 
 ## 10. Source documents
 

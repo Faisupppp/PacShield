@@ -54,7 +54,7 @@ flowchart LR
 
 ### Deployed demo stack
 
-The current repository uses static HTML, CSS, and browser JavaScript hosted by Vercel. `index.html` is login/registration; `home.html` is the dashboard. The demo uses browser local storage for display name/email and sample activity, with no API, database, real session, or backend security. Do not treat the static account gate as production auth.
+The current repository uses static HTML, CSS, and browser JavaScript hosted by Vercel. `index.html` is login/registration; `home.html` is the dashboard; `ledger.js` stores manually entered transactions, budgets, and threshold-alert state in browser local storage, namespaced by demo email. The dashboard calculates the current month from those entries and alerts once per monthly budget/threshold crossing. Data is local to that browser and can be erased with browser storage; there is no API, database, bank sync, server session, or backend security. Do not treat the static account gate as production auth.
 
 ## 4. Repository layout
 
@@ -166,7 +166,7 @@ Base prefix: `/api/v1`; unsafe methods require CSRF protection. Return validatio
 - CI should run lint/type checks, unit tests, integration tests with real Postgres/Redis, dependency audits, and a baseline security scan.
 - Unit-test parser malformed/duplicate/oversized cases, integer-paisee conversion, every score signal, score boundaries, and atomic guardian transitions.
 - Integration-test cross-user access denial and admin/guardian visibility restrictions. End-to-end test login, QR verdict, guardian wait/decision, tracker, and export.
-- Keep the static Vercel demo deploy separate from claims about production API readiness. The current public deployment contains only the browser app and sample/demo behavior.
+- Keep the static Vercel demo deploy separate from claims about production API readiness. The current public deployment contains a browser-local manual ledger and budget alerts, alongside demo authentication and QR/assistant features; no backend or financial integration is deployed.
 
 ## 11. Open technical decisions
 

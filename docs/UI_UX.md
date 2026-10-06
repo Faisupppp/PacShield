@@ -63,7 +63,7 @@ The supplied design brief defines the primary palette below. Status colors must 
 
 - Lead with safe-to-spend today, available budget, and the scan action.
 - Present income/spending summary, trends, category breakdown, budget health, recent activity, and shield counts without crowding the main safety action.
-- Make sample data clearly demo data. Do not imply a bank account is connected.
+- Show zero/empty states until a user records data. Label the current manual ledger as browser-saved and never imply a bank account is connected.
 - Keep Scan as a prominent action and the assistant as an optional floating entry, not a required navigation step.
 
 ### Scan and verdict
@@ -80,7 +80,7 @@ The supplied design brief defines the primary palette below. Status colors must 
 ### Money, budgets, account, assistant, admin
 
 - **Money:** short list rows, recognizable category labels, search, date/category/amount/account filters, clear risky/blocked markers.
-- **Budgets:** progress bars with both percentage and exact spent/remaining values; explain 80%/100% alerts.
+- **Budgets:** progress bars with both percentage and exact spent/remaining values; explain 80%/100% alerts. The current browser app opens a modal on the first crossing of either threshold for each monthly limit.
 - **Account/privacy:** language/text-size controls, alert limit, guardian sharing and revocation, AI provider/key state, export/delete, and sessions.
 - **Ask PacShield:** conversational layout with suggested prompts, message provenance, and a reminder when an answer uses an AI provider. Keep demo/local replies labeled as demos.
 - **Admin:** report evidence, submitter count, verify/reject actions, audit event. Never expose a transaction viewer or secret key.
@@ -114,7 +114,7 @@ The supplied design brief defines the primary palette below. Status colors must 
 | Guardian waiting | Show who was alerted, what happens next, expiry, and option to call family. |
 | Guardian timeout | Tell the user there is no response and recommend calling before paying. |
 | Network/API failure | Preserve user-entered values when safe; retry/exit options; never silently report a transaction as saved. |
-| Empty history/budget | Encourage the next useful step without fake metrics. Label demo values as sample. |
+| Empty history/budget | Encourage the next useful step without fake metrics. Explain that entries and limits are saved in this browser. |
 | Session expired | Explain that sign-in is needed; do not lose a draft transaction. |
 
 ## 9. Usability acceptance checks
