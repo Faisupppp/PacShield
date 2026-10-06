@@ -37,6 +37,10 @@ form.addEventListener('submit',event=>{
   if(mode==='register'&&!name){document.getElementById('full-name').focus();feedback.textContent='Please enter your name to continue.';return;}
   if(!email.checkValidity()){email.focus();feedback.textContent='Enter a valid email address to continue.';return;}
   if(password.value.length<8){password.focus();feedback.textContent='Use at least 8 characters for your password.';return;}
-  feedback.textContent=mode==='register'?'Account creation is a visual demo. No account was created and no details were sent.':'Sign-in is a visual demo. No password was sent or saved.';
-  feedback.classList.add('success');
+  const fallbackName=email.value.split('@')[0].replace(/[._-]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase())||'PacShield member';
+  const account={name:mode==='register'?name:fallbackName,email:email.value.trim()};
+  localStorage.setItem('pacshield-account',JSON.stringify(account));
+  sessionStorage.setItem('pacshield-welcome',`${mode==='register'?'Welcome to PacShield':'Welcome back'}, ${account.name}. This is a demo account.`);
+  password.value='';
+  window.location.assign('index.html');
 });
