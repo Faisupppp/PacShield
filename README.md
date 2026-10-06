@@ -39,6 +39,7 @@ The sign-in and registration forms are UI previews only, not real authentication
 - `account-assistant.css`, `account-assistant.js` — account editor and assistant popup interactions
 ## Product documents
 
+- [Technical project and security documentation](docs/TECHNICAL_PROJECT_SECURITY_DOCUMENTATION.md) — consolidated project overview, workflow, architecture, features, security, validation, and deployment status in the supplied reference section order
 - [PRD](docs/PRD.md) — product goals, roles, requirements, risk model, and current release status
 - [TRD](docs/TRD.md) — target architecture, parser/risk contracts, API, and security design
 - [Web app flow](docs/WEB_FLOW.md) — routes and user/guardian/admin workflows
